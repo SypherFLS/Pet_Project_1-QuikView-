@@ -34,7 +34,8 @@ func MustLoad() *Config {
 	configPath := os.Getenv("CONFIG_PATH")
 
 	if configPath == "" {
-		configPath = "/Users/sypher/Desktop/qw/Pet_Project_1-QuikView-/backend/config/config.yaml"
+		configPath = "/Users/wwwkr/Desktop/qw/Pet_Project_1-QuikView-/backend/config/config.yaml"
+		// configPath = "config/config.yaml"
 	}
 
 	if _, err := os.Stat(configPath); os.IsNotExist(err) {

@@ -13,19 +13,6 @@ const (
 	envProd = "prod"
 )
 
-func main() {
-	cfg := config.MustLoad()
-
-	db.InitDB()
-
-	log := setupLogger(cfg.Env)
-
-	log.Info("starting backend", slog.String("env", cfg.Env))
-
-
-}
-
-
 func setupLogger (env string) *slog.Logger {
 	var log *slog.Logger
 	switch env {
@@ -44,3 +31,17 @@ func setupLogger (env string) *slog.Logger {
 	}
 	return log
 }
+
+func main() {
+	cfg := config.MustLoad()
+
+	db.InitDB()
+
+	log := setupLogger(cfg.Env)
+
+	log.Info("starting backend", slog.String("env", cfg.Env))
+
+
+}
+
+
