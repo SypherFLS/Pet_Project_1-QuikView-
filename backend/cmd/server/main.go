@@ -5,6 +5,8 @@ import (
 	"os"
 	"project/internal/config"
 	"project/internal/repository/postgres"
+	_ "net/http"
+	"github.com/gin-gonic/gin"
 )
 
 const (
@@ -41,6 +43,9 @@ func main() {
 
 	log.Info("starting backend", slog.String("env", cfg.Env))
 
+	router := gin.Default()
+
+	router.Run(cfg.HTTP.Address)
 
 }
 
